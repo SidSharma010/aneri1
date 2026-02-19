@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VA Outreach Pro</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Subscription-ready</p>
+          <h1>VA Outreach Pro</h1>
+          <p class="subtitle">Find leads, craft premium invite notes, and run a polished outreach pipeline.</p>
+        </div>
+        <div class="pill" id="planBadge">₹99/mo</div>
+      </header>
+
+      <section class="stats" aria-label="Pipeline stats">
+        <article>
+          <span>Total leads</span>
+          <strong id="statTotal">0</strong>
+        </article>
+        <article>
+          <span>Invite sent</span>
+          <strong id="statInvites">0</strong>
+        </article>
+        <article>
+          <span>Replies</span>
+          <strong id="statReplies">0</strong>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Lead capture</h2>
+        <div class="grid two">
+          <label>Name<input id="leadName" type="text" placeholder="Jane Doe" /></label>
+          <label>Company<input id="leadCompany" type="text" placeholder="Example Labs" /></label>
+        </div>
+        <label>Headline<input id="leadHeadline" type="text" placeholder="Founder | Scaling operations" /></label>
+        <label>Profile URL<input id="leadUrl" type="url" placeholder="https://www.linkedin.com/in/..." /></label>
+        <label>Contact notes (manual only)<input id="leadContact" type="text" placeholder="Email/phone shared with consent" /></label>
+        <div class="grid two">
+          <label>Status
+            <select id="status">
+              <option value="To contact">To contact</option>
+              <option value="Invite sent">Invite sent</option>
+              <option value="Replied">Replied</option>
+              <option value="Discovery call">Discovery call</option>
+            </select>
+          </label>
+          <label>Next follow-up<input id="nextFollowUp" type="date" /></label>
+        </div>
+        <div class="actions">
+          <button id="captureBtn" type="button">Capture from profile</button>
+          <button id="saveBtn" type="button" class="secondary">Save lead</button>
+          <button id="clearBtn" type="button" class="ghost">Clear</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Message studio</h2>
+        <div class="grid two">
+          <label>Your name<input id="senderName" type="text" placeholder="Your Name" /></label>
+          <label>Service offer<input id="offer" type="text" placeholder="VA support for inbox + admin" /></label>
+        </div>
+        <div class="grid two">
+          <label>Template
+            <select id="templateType">
+              <option value="intro">Warm intro</option>
+              <option value="value">Value-first pitch</option>
+              <option value="followup">Follow-up nudge</option>
+            </select>
+          </label>
+          <label>Tone
+            <select id="tone">
+              <option value="professional">Professional</option>
+              <option value="friendly">Friendly</option>
+              <option value="premium">Premium</option>
+            </select>
+          </label>
+        </div>
+        <label>Personal context<input id="personalDetail" type="text" placeholder="your hiring post for admin support" /></label>
+        <label>Draft<textarea id="messageDraft" rows="5"></textarea></label>
+        <div class="actions">
+          <button id="generateBtn" type="button">Generate draft</button>
+          <button id="copyBtn" type="button" class="secondary">Copy message</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="cardHead">
+          <h2>Lead tracker</h2>
+          <div class="actions compact">
+            <button id="exportBtn" type="button" class="ghost">Export CSV</button>
+          </div>
+        </div>
+        <label>Search leads<input id="searchLeads" type="text" placeholder="Search by name, company, or status" /></label>
+        <div id="leadList" class="leadList"></div>
+      </section>
+
+      <section class="card pricing">
+        <div>
+          <h2>Plans</h2>
+          <p>Configure pricing for your subscription rollout.</p>
+        </div>
+        <div class="pricingRow">
+          <div class="priceBox">
+            <p>India</p>
+            <strong>₹99 / month</strong>
+          </div>
+        </div>
+        <label>Display currency
+          <select id="displayCurrency">
+            <option value="INR">INR</option>
+          </select>
+        </label>
+      </section>
+
+      <p id="feedback" class="feedback"></p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
